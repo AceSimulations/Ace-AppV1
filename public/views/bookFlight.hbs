@@ -1,0 +1,294 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      ::placeholder{
+        color: black;
+      }
+      @keyframes expand{
+        0%{
+          height: 0px;
+        }
+        1%{
+          display: block;
+        }
+        100%{
+          height: 50px;
+        }
+      }
+      ::-webkit-scrollbar{
+        width: 10px;
+      }
+      ::-webkit-scrollbar-thumb{
+        border: 0px solid;
+        background-color: #d1d1d1;
+      }
+    </style>
+    <style>
+      input[type=date]::-webkit-inner-spin-button {
+        display: none;
+      }
+      @keyframes animateSide{
+        0%{
+          margin-left: -260px;
+        }
+        100%{
+          margin-left: 0px;
+        }
+      }
+      @keyframes animateSideBack{
+        0%{
+          margin-left: 0;
+        }
+        100%{
+          margin-left: -260px;
+        }
+      }
+      #animate-nav{
+        animation: animateSide 1s forwards;
+      }
+      #animate-nav-def{
+        animation: none;
+      }
+      #unanimate-nav{
+        animation: animateSideBack 1s forwards;
+      }
+    </style>
+  </head>
+  <body style="margin: 0px; overflow-x: hidden">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book A Flight | Ace Airlines</title>
+    <center>
+      <script src="book-a-flight.js"></script>
+    <div style="width: 100vw; height: 140px; background-color: #e60f0f; position: relative;box-shadow: 0 0 8px rgba(0, 0, 0, 0.4)">
+      <div style="width: 90%; height: 55px; position: relative; ">
+        <img src="hamburger.png" style="width: 40px; position: absolute; left: 0px; top: 10px;" onclick="animateNav()">
+        <img src="profile.png" onclick="profile()" style="width: 30px; position: absolute; right: 3px; top: 13px;">
+        <p style="font-family: Montserrat; color: white; font-weight: 700; letter-spacing: 3px; padding-top: 20px;">BOOK A FLIGHT</p>
+      </div>
+      <input id="searchDest" type="text" style="border: 2px solid; border-radius: 15px; width: 80%; height: 40px; position: absolute; bottom: 35px; left: 50%; margin-left: -40%; text-align:center; font-family: Montserrat;" placeholder="Search for a destination.">
+      <p id="advText" style="display: none; position: absolute; bottom: -3px; color: white; font-family: Montserrat; font-weight: 600;width: 300px; left: 50%; margin-left: -150px; font-size: 13px; user-select: none;" onclick="showAdvancedOptions()">Search with Advanced Options ▼</p>
+    </div>
+    <div id="advancedOptions" style="width: 100vw; height: 50px; background-color: #e60f0f; position: relative; display: none; animation: expand 0.2s forwards;">
+      <input id="user-date" type="date" style="width: 135px; border-radius: 5px; background-color: white; padding-left: 10px; border: none; display: inline-block; height: 37px;">
+      <select type="text" style="width: 100px; border-radius: 5px; background-color: white; padding-left: 10px; border: none; display: inline-block; height: 38px;" placeholder="">
+        <option>Type</option>
+        <option>Non-Stop</option>
+        <option>One Way</option>
+        <option>Multi-City</option>
+      </select>
+      <input type="number" min="1" max="10" maxlength="2" style="width: 80px; border-radius: 5px; background-color: white; padding-left: 10px; border: none; height: 38px;" placeholder="# People">
+    </div>
+    <div style="" id="results">
+      <h1 id="top-results" style="display: none; font-family: Montserrat; color: black; font-weight: 700; letter-spacing: 3px; padding-top: 10px; font-size: 15px; width: 80%; text-align: left; height: 20px;">TOP RESULTS</h1>
+      <center>
+        <img id="no-logo" src="airplaneLogo.png" style="width: 50px; margin-top: 80px;">
+        <p id="no-flights" style="margin-top: 10px; font-family: Montserrat; color: black; margin-bottom: 80px;">Search for an Ace Airlines Flight!</p>
+      </center>
+    <div id="loadResults" style="display: block;">
+      
+      
+    </div>
+      <button id="other-options" style="display: none; background-color: #e60f0f; width: 80%; color: white; height: 35px; border-radius: 12px; margin-top: 20px; font-family: Montserrat; border: 1px solid transparent;">CHECK OUT OTHER OPTIONS</button>
+    </div>
+    </center>
+      <!--navigation-->
+      <div id="unanimate-nav-def" style="width: 250px; background-color: #d6d6d6; height: 100vh; position: absolute; top: 0px; left: 0px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); margin-left: -260px">
+          <img src="backArrowNav.png" style="position: absolute; top: 30px; right: 30px; width: 10px;" onclick="unanimateNav()">
+          <img src="acelogo.png" style="width: 120px; margin: 20px;">
+          <h1 style="font-size: 170%; color: #e60f0f; margin: 0px; margin-left: 20px; font-family: Montserrat; margin-right: 10px;">Navigation</h1>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 25px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/home'">HOME</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location = '/news'">NEWS</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/book-a-flight'">BOOK NOW</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/my-flights'">MY FLIGHTS</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location = 'https://flyaceairline.weebly.com/'">WEBSITE</button><!--
+          --><button style="position: absolute; margin-left: 18px; bottom: 40px; text-align: left; left: 0px; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/'">Log Out</button>
+          <i style="position: absolute; color: #e60f0f; bottom: 20px; left: 20px; font-family: Montserrat; font-size: 12px;">Copyright Ace Airlines™ 2020</i>
+      </div>
+    </div>
+    <!--Profile-->
+    <div id="profileDiv" style="display: none; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000;">
+      <div style="width: 300px; height: 270px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('profileDiv').style.display = 'none'">&times;</p>
+        <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
+        <p style="font-family: Montserrat; font-weight: 600; color: #e60f0f; position: absolute; top: 0px; left: 100px;">Your Profile</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">You can access you flights by clicking the button below.</p>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 150px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/my-flights'">MY FLIGHTS</button>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 200px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/'">LOG OUT</button>
+      </div>
+    </div>
+  </body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+  <script>
+    var socket = io()
+    function showAdvancedOptions(){
+      document.getElementById("advancedOptions").style.display = "block"
+      document.getElementById("advText").innerHTML = "Collapse Advanced Options ▲"
+      document.getElementById("advText").setAttribute("onclick", "collapseAdvancedOptions()")
+    }
+
+    function collapseAdvancedOptions(){
+      document.getElementById("advancedOptions").style.display = "none"
+      document.getElementById("advText").innerHTML = "Search with Advanced Options ▼"
+      document.getElementById("advText").setAttribute("onclick", "showAdvancedOptions()")
+    }
+    var time = 0;
+    function animateNav() {
+      time++
+      if (time == 1){
+        document.getElementById("unanimate-nav-def").id = "animate-nav";
+      } else {
+        document.getElementById("unanimate-nav").id = "animate-nav";
+      }
+    }
+
+    var searchBar = document.getElementById('searchDest')
+    searchBar.addEventListener('keyup', (e) => {
+      if (e.keyCode == 13) {
+        e.preventDefault()
+        socket.emit('request-dest-data')
+      } 
+    })
+
+    socket.on('dest-req-return', (data) => {
+      var search = document.getElementById('searchDest').value
+      var every = 0
+      data.forEach((index) => {
+        every++
+        if ((index.query).toUpperCase() == search.toUpperCase()) {
+          document.getElementById('no-logo').style.display = "none"
+          document.getElementById('no-flights').style.display = "none"
+          document.getElementById('top-results').style.display = "block"
+          document.getElementById('loadResults').textContent = ''
+          var incr = index.event
+          var every2 = 0
+          incr.forEach((dataSet) => {
+            every2++
+            var coverDiv = document.createElement('div')
+            coverDiv.style.width = "93%"
+            coverDiv.style.height = "60px"
+            coverDiv.style.borderRadius = "7px"
+            coverDiv.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.4)"
+            coverDiv.style.marginTop = "20px"
+            coverDiv.style.borderLeft = "10px solid #e60f0f"
+            coverDiv.style.textAlign = "left"
+            coverDiv.style.position = "relative"
+            coverDiv.id = every + "result-wrapper" + every2
+            coverDiv.onclick = function(){
+              console.log(dataSet.date)
+              saveFile(index.name, dataSet.date + " | " + dataSet.time, dataSet.type, "HSV-" + dataSet.icao)
+            }
+            document.getElementById('loadResults').appendChild(coverDiv)
+
+            var airplaneHeader = document.createElement('img')
+            airplaneHeader.src = "airplaneLogo.png"
+            airplaneHeader.style.width = "45px"
+            airplaneHeader.style.position = "absolute"
+            airplaneHeader.style.top = "50%"
+            airplaneHeader.style.marginTop = "-22.5px"
+            airplaneHeader.style.marginLeft = "10px"
+            document.getElementById(every + "result-wrapper" + every2).appendChild(airplaneHeader)
+
+            var location = document.createElement('p')
+            location.style.color = "#e60f0f"
+            location.style.fontFamily = "Montserrat"
+            location.style.fontWeight = "600"
+            location.style.fontSize = "13px"
+            location.style.marginLeft = "70px"
+            location.style.position = "absolute"
+            location.style.top = "0px"
+            location.style.marginTop = "7px"
+            location.innerHTML = index.name
+            document.getElementById(every + "result-wrapper" + every2).appendChild(location)
+
+            var date = document.createElement('p')
+            date.style.fontFamily = "Montserrat"
+            date.style.fontWeight = "300"
+            date.style.fontSize = "13px"
+            date.style.marginLeft = "70px"
+            date.style.position = "absolute"
+            date.style.top = "0px"
+            date.style.marginTop = "22px"
+            date.innerHTML = dataSet.date + " | " + dataSet.time
+            document.getElementById(every + "result-wrapper" + every2).appendChild(date)
+
+            var type = document.createElement('p')
+            type.style.fontFamily = "Montserrat"
+            type.style.fontWeight = "600"
+            type.style.fontSize = "13px"
+            type.style.marginLeft = "70px"
+            type.style.position = "absolute"
+            type.style.top = "0px"
+            type.style.marginTop = "37px"
+            type.innerHTML = dataSet.type
+            document.getElementById(every + "result-wrapper" + every2).appendChild(type)
+
+            var arrow = document.createElement('img')
+            arrow.style.width = "25px"
+            arrow.src = "arrow.png"
+            arrow.style.position = "absolute"
+            arrow.style.right = "20px"
+            arrow.style.top = "22px"
+            document.getElementById(every + "result-wrapper" + every2).appendChild(arrow)
+          })
+        }
+      })
+
+      /*<div style="width: 93%; height: 60px; border-radius: 7px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); margin-top: 20px; border-left: 10px solid #e60f0f; text-align: left; position: relative;" id="searchOne">
+        <img src="airplaneLogo.png" style="width: 45px; position: absolute; top: 50%; margin-top: -22.5px; margin-left: 5px;">
+        <p style="color: #e60f0f; font-family: Montserrat; font-weight: 600; font-size: 13px; margin-left: 55px; position: absolute; top: 0px; margin-top: 7px;" id="searchOne-location">NEW YORK - HOUSTON</p>
+        <p style="font-family: Montserrat; font-weight: 300; font-size: 13px; margin-left: 55px; position: absolute; top: 0px; margin-top: 22px;" id="searchOne-date">APRIL 10, 2020 | 9:45</p>
+        <p style="font-family: Montserrat; font-weight: 600; font-size: 13px; margin-left: 55px; position: absolute; top: 0px; margin-top: 37px;" id="searchOne-type">ROUND TRIP</p>
+        <img src="arrow.png" id="searchOne-onclick" style="width: 25px; position: absolute; right: 12px; top: 22px;">
+      </div>
+
+
+      if (search.toUpperCase() == "PHILADELPHIA" || search.toUpperCase() == "PHILLY") {
+        document.getElementById('no-flights').style.display = 'none';
+        document.getElementById('top-results').style.display = 'block';
+        document.getElementById('no-logo').style.display = 'none';
+        document.getElementById('other-options').style.display = 'none';
+
+        document.getElementById('searchOne').style.display = "block"
+        document.getElementById('searchOne-location').innerHTML = "Huntsville, AL - Philadelphia, PA"
+        document.getElementById('searchOne-date').innerHTML = data.philadelphia.event[0].date + " | " + data.philadelphia.event[0].time
+        document.getElementById('searchOne-type').innerHTML = data.philadelphia.event[0].type
+        document.getElementById('searchOne-onclick').setAttribute("onclick", "saveFile('Huntsville, AL - Philadelphia, PA', document.getElementById('searchOne-date'), document.getElementById('searchOne-type'), 'HSV-PHL')")
+
+        document.getElementById('searchTwo').style.display = "block"
+        document.getElementById('searchTwo-location').innerHTML = "Huntsville, AL - Philadelphia, PA"
+        document.getElementById('searchTwo-date').innerHTML = data.philadelphia.event[1].date + " | " + data.philadelphia.event[1].time
+        document.getElementById('searchTwo-type').innerHTML = data.philadelphia.event[1].type
+        document.getElementById('searchTwo-onclick').setAttribute("onclick", "saveFile('Huntsville, AL - Philadelphia, PA', document.getElementById('searchTwo-date'), document.getElementById('searchTwo-type'), 'HSV-PHL')")
+
+        document.getElementById('searchThree').style.display = "block"
+        document.getElementById('searchThree-location').innerHTML = "Huntsville, AL - Philadelphia, PA"
+        document.getElementById('searchThree-date').innerHTML = data.philadelphia.event[2].date + " | " + data.philadelphia.event[2].time
+        document.getElementById('searchThree-type').innerHTML = data.philadelphia.event[2].type
+        document.getElementById('searchThree-onclick').setAttribute("onclick", "saveFile('Huntsville, AL - Philadelphia, PA', document.getElementById('searchThree-date'), document.getElementById('searchThree-type'), 'HSV-PHL')")
+
+        document.getElementById('searchFour').style.display = "block"
+        document.getElementById('searchFour-location').innerHTML = "Huntsville, AL - Philadelphia, PA"
+        document.getElementById('searchFour-date').innerHTML = data.philadelphia.event[3].date + " | " + data.philadelphia.event[3].time
+        document.getElementById('searchFour-type').innerHTML = data.philadelphia.event[3].type
+        document.getElementById('searchFour-onclick').setAttribute("onclick", "saveFile('Huntsville, AL - Philadelphia, PA', document.getElementById('searchFour-date'), document.getElementById('searchFour-type'), 'HSV-PHL')")
+      }*/
+
+
+    })
+
+    function saveFile(locationDest, dateDest, typeDest, shortDest) {
+      window.location = '/confirm-book?name=' + locationDest + '&date=' + dateDest + '&type=' + typeDest + '&short=' + shortDest
+    }
+
+    const unanimateNav = () => {
+      document.getElementById("animate-nav").id = "unanimate-nav";
+    }
+    function profile() {
+      document.getElementById("profileDiv").style.display = "block"
+    }
+    
+  </script>
+<html>

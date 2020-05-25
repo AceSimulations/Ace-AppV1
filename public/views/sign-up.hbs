@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<title>Ace Airlines App | BETA</title>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="socket.io/socket.io/js"></script>
+  <script src="script.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+  <style>
+    @keyframes animateSide{
+      0%{
+        margin-left: -260px;
+      }
+      100%{
+        margin-left: 0px;
+      }
+    }
+    @keyframes animateSideBack{
+      0%{
+        margin-left: 0;
+      }
+      100%{
+        margin-left: -260px;
+      }
+    }
+    #animate-nav{
+      animation: animateSide 1s forwards;
+    }
+    #animate-nav-def{
+      animation: none;
+    }
+    #unanimate-nav{
+      animation: animateSideBack 1s forwards;
+    }
+    ::-webkit-scrollbar{
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb{
+      border: 0px solid;
+      background-color: #d1d1d1;
+    }
+  </style>
+</head>
+
+<body style="margin: 0px; overflow: hidden; height: 100vh;">
+
+	<!--sign up-->
+	<div style="display: block;">
+		<div style="width: 100vw; height: 100vh; position: relative;">
+			<div style="width: 80%; height: 450px; position: absolute; top: 50%; margin-top: -225px; left: 50%; margin-left: -40%;">
+				<center>
+          <h1 style="font-family: Montserrat; color: #e60f0f;">Sign Up</h1>
+          <hr style="width: 80%; background-color: #e60f0f; height: 5px; border: none;">
+          <p style="font-family: Montserrat; font-weight: 300; color: #e60f0f;">Create a new Ace Airlines account</p>
+            <form id="signupSubmit" style="margin-top: 40px;">
+              <p id="bad-username" style="width: 80%; padding: 0px; color: orange; font-family: montserrat; background-color: transparent; border-radius: 20px; display: none;">Your username is already in use or blank.</p>
+              <fieldset style="width: 80%; border: 3px solid #e60f0f; text-align: left; border-radius: 20px;">     
+              <legend style="background-color: white;color: #e60f0f; padding: 10px; font-family: Montserrat; font-weight: 600;padding-bottom: 0px; padding-top: 0px;">Email</legend>
+              <input id="email" type="email" style="width: 100%; height: 100%; border: none; outline: none; font-family: Montserrat; font-weight: 300;" placeholder="Type your email.">
+              </fieldset>
+
+              <fieldset style="margin-top: 10px; width: 80%; border: 3px solid #e60f0f; text-align: left; border-radius: 20px;">
+              <legend style="background-color: white;color: #e60f0f; padding: 10px; font-family: Montserrat; font-weight: 600;padding-bottom: 0px; padding-top: 0px;">Username</legend>
+              <input id="username" type="text" style="width: 100%; height: 100%; border: none; outline: none; font-family: Montserrat; font-weight: 300;" placeholder="Create a username.">
+              </fieldset>
+
+              <fieldset style="margin-top: 10px; width: 80%; border: 3px solid #e60f0f; text-align: left; border-radius: 20px;">
+              <legend style="background-color: white;color: #e60f0f; padding: 10px; font-family: Montserrat; font-weight: 600;padding-bottom: 0px; padding-top: 0px;">Password</legend>
+              <input id="password" type="password" style="width: 100%; height: 100%; border: none; outline: none; font-family: Montserrat; font-weight: 300;" placeholder="Create a password.">
+              </fieldset>
+              <button type="submit" style="width: 80%; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none;margin-top: 30px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;">SIGN UP</button>
+            </form>
+            <button type="button" style="width: 90%; height: 35px; border-radius: 20px; background-color: transparent; border: none; margin-top: 10px; color: #e60f0f; font-family: Montserrat;" onclick="window.location = '/'">Already have an account? LOG IN</button>
+          </center>
+        </div>
+      </div>
+    </div>
+  </body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io()
+  socket.on('bad-username', () => {
+    document.getElementById('bad-username').style.display = "block"
+  })
+  socket.on('user-granted', (name) => {
+    localStorage.setItem('username', name)
+    window.location = '/'
+  })
+  var submit = document.getElementById('signupSubmit')
+  submit.addEventListener('submit', (e) => {
+    e.preventDefault()
+    var email = document.getElementById('email').value
+    var username = document.getElementById('username').value
+    var password = document.getElementById('password').value
+    window.location = '/create-account/?username=' + username + '&password=' + password + '&email=' + email
+  })
+</script>
+</html>

@@ -1,0 +1,592 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+    <style>
+    @keyframes animateSide{
+      0%{
+        margin-left: -260px;
+      }
+      100%{
+        margin-left: 0px;
+      }
+    }
+    @keyframes animateSideBack{
+      0%{
+        margin-left: 0;
+      }
+      100%{
+        margin-left: -260px;
+      }
+    }
+    #animate-nav{
+      animation: animateSide 1s forwards;
+    }
+    #animate-nav-def{
+      animation: none;
+    }
+    #unanimate-nav{
+      animation: animateSideBack 1s forwards;
+    }
+    ::-webkit-scrollbar{
+      width: 0px;
+    }
+    ::-webkit-scrollbar-thumb{
+      border: 0px solid;
+      background-color: transparent;
+    }
+
+/*SEA-HSV*/
+    @keyframes flight1 {
+      0%{
+        left: 100px; 
+        top: -485px;
+        transform: rotate(125deg);
+      }
+      100%{
+        left: 620px; 
+        top: -200px;
+        transform: rotate(125deg);
+      }
+    }
+    #animate-flight1{
+      animation: flight1 60s forwards;
+    }
+
+/*SEA-HSV back*/
+    @keyframes flight1back {
+      0%{
+        left: 620px; 
+        top: -200px;
+        transform: rotate(300deg);
+      }
+      100%{
+        left: 100px; 
+        top: -485px;
+        transform: rotate(300deg);
+      }
+    }
+    #animate-flight1back{
+      animation: flight1back 60s forwards;
+    }
+
+/*HSV-ATL*/
+    @keyframes flight2 {
+      0%{
+        left: 620px; 
+        top: -200px;
+        transform: rotate(90deg);
+      }
+      100%{
+        left: 670px; 
+        top: -200px;
+        transform: rotate(90deg);
+      }
+    }
+    #animate-flight2{
+      animation: flight2 10s forwards;
+    }
+
+/*HSV-ATL back*/
+    @keyframes flight2back {
+      0%{
+        left: 670px; 
+        top: -200px;
+        transform: rotate(270deg);
+      }
+      100%{
+        left: 620px; 
+        top: -200px;
+        transform: rotate(270deg);
+      }
+    }
+    #animate-flight2back{
+      animation: flight2back 10s forwards;
+    }
+
+/*HSV-MCO*/
+    @keyframes flight3 {
+      0%{
+        left: 620px; 
+        top: -200px;
+        transform: rotate(150deg);
+      }
+      100%{
+        left: 695px; 
+        top: -95px;
+        transform: rotate(150deg);
+      }
+    }
+    #animate-flight3{
+      animation: flight3 30s forwards;
+    }
+
+/*HSV-MCO back*/
+    @keyframes flight3back {
+      0%{
+        left: 695px; 
+        top: -95px;
+        transform: rotate(330deg);
+      }
+      100%{
+        left: 620px; 
+        top: -200px;
+        transform: rotate(330deg);
+      }
+    }
+    #animate-flight3back{
+      animation: flight3back 30s forwards;
+    }
+
+/*HSV-MIA*/
+    @keyframes flight4 {
+      0%{
+        left: 600px; 
+        top: -200px;
+        transform: rotate(150deg);
+      }
+      100%{
+        left: 685px; 
+        top: -45px;
+        transform: rotate(150deg);
+      }
+    }
+    #animate-flight4{
+      animation: flight4 35s forwards;
+    }
+
+/*HSV-MIA back*/
+    @keyframes flight4back {
+      0%{
+        left: 685px; 
+        top: -45px;
+        transform: rotate(330deg);
+      }
+      100%{
+        left: 600px; 
+        top: -200px;
+        transform: rotate(330deg);
+      }
+    }
+    #animate-flight4back{
+      animation: flight4back 35s forwards;
+    }
+
+/*HSV-BNA*/
+    @keyframes flight5 {
+      0%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(0deg);
+      }
+      100%{
+        left: 570px; 
+        top: -240px;
+        transform: rotate(0deg);
+      }
+    }
+    #animate-flight5{
+      animation: flight5 7s forwards;
+    }
+
+/*HSV-BNA back*/
+    @keyframes flight5back {
+      0%{
+        left: 570px; 
+        top: -240px;
+        transform: rotate(180deg);
+      }
+      100%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(180deg);
+      }
+    }
+    #animate-flight5back{
+      animation: flight5back 7s forwards;
+    }
+
+/*HSV-DFW*/
+    @keyframes flight6 {
+      0%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(270deg);
+      }
+      100%{
+        left: 400px; 
+        top: -200px;
+        transform: rotate(270deg);
+      }
+    }
+    #animate-flight6{
+      animation: flight6 35s forwards;
+    }
+
+/*HSV-DFW back*/
+    @keyframes flight6back {
+      0%{
+        left: 400px; 
+        top: -200px;
+        transform: rotate(90deg);
+      }
+      100%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(90deg);
+      }
+    }
+    #animate-flight6back{
+      animation: flight6back 35s forwards;
+    }
+
+/*HSV-IAH*/
+    @keyframes flight7 {
+      0%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(230deg);
+      }
+      100%{
+        left: 410px; 
+        top: -125px;
+        transform: rotate(230deg);
+      }
+    }
+    #animate-flight7{
+      animation: flight7 32s forwards;
+    }
+
+/*HSV-IAH back*/
+    @keyframes flight7back {
+      0%{
+        left: 410px; 
+        top: -125px;
+        transform: rotate(50deg);
+      } 
+      100%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(50deg);
+      }
+    }
+    #animate-flight7back{
+      animation: flight7back 32s forwards;
+    }
+    
+/*HSV-SFO*/
+    @keyframes flight8 {
+      0%{
+        left: 550px; 
+        top: -200px;
+        transform: rotate(280deg);
+      }
+      100%{
+        left: 0px; 
+        top: -300px;
+        transform: rotate(280deg);
+      }
+    }
+    #animate-flight8{
+      animation: flight8 55s forwards;
+    }
+
+/*HSV-SFO back*/
+    @keyframes flight8back {
+      0%{
+        left: 0px; 
+        top: -300px;
+        transform: rotate(100deg);
+      } 
+      100%{
+        left: 550px; 
+        top: -200px;
+        transform: rotate(100deg);
+      }
+    }
+    #animate-flight8back{
+      animation: flight8back 55s forwards;
+    }
+
+/*HSV-LAX*/
+    @keyframes flight9 {
+      0%{
+        left: 550px; 
+        top: -200px;
+        transform: rotate(280deg);
+      }
+      100%{
+        left: 35px; 
+        top: -220px;
+        transform: rotate(280deg);
+      }
+    }
+    #animate-flight9{
+      animation: flight9 52s forwards;
+    }
+
+/*HSV-LAX back*/
+    @keyframes flight9back {
+      0%{
+        left: 35px; 
+        top: -220px;
+        transform: rotate(100deg);
+      } 
+      100%{
+        left: 550px; 
+        top: -200px;
+        transform: rotate(100deg);
+      }
+    }
+    #animate-flight9back{
+      animation: flight9back 52s forwards;
+    }
+
+/*HSV-PDX*/
+    @keyframes flight10 {
+      0%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(280deg);
+      }
+      100%{
+        left: 0px; 
+        top: -400px;
+        transform: rotate(280deg);
+      }
+    }
+    #animate-flight10{
+      animation: flight10 53s forwards;
+    }
+
+/*HSV-PDX back*/
+    @keyframes flight10back {
+      0%{
+        left: 0px; 
+        top: -400px;
+        transform: rotate(100deg);
+      } 
+      100%{
+        left: 570px; 
+        top: -200px;
+        transform: rotate(100deg);
+      }
+    }
+    #animate-flight10back{
+      animation: flight10back 53s forwards;
+    }
+  </style>
+  <body style="margin: 0px; overflow-x: hidden;">
+    <center>
+    <div style="width: 100%; height: 55px; background-color: #e60f0f;">
+      <div style="width: 90%; height: 55px; position: relative;">
+        <img src="hamburger.png" style="width: 40px; position: absolute; left: 0px; top: 10px;" onclick="animateNav('true')">
+        <img src="profile.png" onclick="profile()" style="width: 30px; position: absolute; right: 3px; top: 13px;">
+        <p style="font-family: Montserrat; color: white; font-weight: 700; letter-spacing: 3px; padding-top: 20px;">FLIGHT RADAR</p>
+      </div>
+    </div>
+
+    <!--radar code-->
+    <div style="overflow: scroll; text-align: left; width: 100%; height: auto;">
+    <img id="map" src="map.png" style="height: auto; width: 1000px;"/>
+    <img src="flight.png" id="animate-flight1back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight2back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight3back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight4back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight5back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight6back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight7back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight8back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight9back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    <img src="flight.png" id="animate-flight10back" style="z-index: 100; position: relative; margin: 0px;left: 100px; top: -485px; height: auto; width: 10px;"/>
+    </div>
+
+    <!--info-->
+    <div style="text-align: center; background-color: #EFEFEE; width: 100%; height: auto; margin-top: -37px;">
+      <center>
+        <div style="width: 100%; height: auto;">
+          <div style="width: calc(50% - 1px); float: left; height: 100px; background-color: #ededed; position: relative;">
+            <h1 style="font-family: montserrat;">HSV</h1>
+            <img src="radarairplane.png" style="width: 50px; position: absolute; top: 24px; right: -25px; z-index: 100;">
+          </div>
+          <div style="width: calc(50% - 1px); float: right; height: 100px; background-color: #ededed; position: relative;">
+
+            <h1 style="font-family: montserrat;">ATL</h1>
+          </div>
+        </div>
+
+        <div style="width: 100%; height: auto;">
+          <div style="width: calc(50% - 1px); float: left; height: 40px; background-color: #dcdcdc;">
+            
+          </div>
+          <div style="width: calc(50% - 1px); float: right; height: 40px; background-color: #dcdcdc;"></div>
+        </div>
+      </center>
+    </div>
+    </center>
+
+      <!--navigation-->
+      <div id="unanimate-nav-def" style="width: 250px; background-color: #d6d6d6; height: 100vh; position: absolute; top: 0px; left: 0px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); margin-left: -260px">
+          <img src="backArrowNav.png" style="position: absolute; top: 30px; right: 30px; width: 10px;" onclick="unanimateNav()">
+          <img src="acelogo.png" style="width: 120px; margin: 20px;">
+          <h1 style="font-size: 170%; color: #e60f0f; margin: 0px; margin-left: 20px; font-family: Montserrat; margin-right: 10px;">Navigation</h1>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 25px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/home'">HOME</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location = '/news'">NEWS</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/book-a-flight'">BOOK NOW</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/my-flights'">MY FLIGHTS</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location = 'https://flyaceairline.weebly.com/'">WEBSITE</button><!--
+          --><button style="position: absolute; margin-left: 18px; bottom: 40px; text-align: left; left: 0px; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/'">Log Out</button>
+          <i style="position: absolute; color: #e60f0f; bottom: 20px; left: 20px; font-family: Montserrat; font-size: 12px;">Copyright Ace Airlines™ 2020</i>
+      </div>
+    </div>
+    <!--Profile-->
+    <div id="profileDiv" style="display: none; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000;">
+      <div style="width: 300px; height: 270px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('profileDiv').style.display = 'none'">&times;</p>
+        <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
+        <p style="font-family: Montserrat; font-weight: 600; color: #e60f0f; position: absolute; top: 0px; left: 100px;">Your Profile</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">You can access you flights by clicking the button below.</p>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 150px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/my-flights'">MY FLIGHTS</button>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 200px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/'">LOG OUT</button>
+      </div>
+    </div>
+  </body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  
+  initFlights();
+
+  var type = "false"
+  var time = 0;
+  const animateNav = () => {
+    time++
+    if (time == 1){
+      document.getElementById("unanimate-nav-def").id = "animate-nav";
+    } else {
+      document.getElementById("unanimate-nav").id = "animate-nav";
+    }
+  }
+  const unanimateNav = () => {
+    document.getElementById("animate-nav").id = "unanimate-nav";
+  }
+  function profile() {
+    document.getElementById("profileDiv").style.display = "block"
+  }
+
+//init flights
+  function initFlights() {
+    flightSeahsv()
+    flightHsvatl()
+    flightHsvmco()
+    flightHsvmia()
+    flightHsvbna()
+    flightHsviah()
+    flightHsvdfw()
+    flightHsvsfo()
+    flightHsvlax()
+    flightHsvpdx()
+  }
+
+  //SEA-HSV
+  function flightSeahsv() {
+    document.getElementById("animate-flight1back").id = "animate-flight1";
+    setTimeout(flightSeahsvback, 60000);
+  }
+  function flightSeahsvback() {
+    document.getElementById("animate-flight1").id = "animate-flight1back";
+    setTimeout(flightSeahsv, 60000);
+  }
+
+  //HSV-ATL
+  function flightHsvatl() {
+    document.getElementById("animate-flight2back").id = "animate-flight2";
+    setTimeout(flightHsvatlback, 10000);
+  }
+  function flightHsvatlback() {
+    document.getElementById("animate-flight2").id = "animate-flight2back";
+    setTimeout(flightHsvatl, 10000);
+  }
+
+  //HSV-MCO
+  function flightHsvmco() {
+    document.getElementById("animate-flight3back").id = "animate-flight3";
+    setTimeout(flightHsvmcoback, 30000);
+  }
+  function flightHsvmcoback() {
+    document.getElementById("animate-flight3").id = "animate-flight3back";
+    setTimeout(flightHsvmco, 30000);
+  }
+
+  //HSV-MIA
+  function flightHsvmia() {
+    document.getElementById("animate-flight4back").id = "animate-flight4";
+    setTimeout(flightHsvmiaback, 35000);
+  }
+  function flightHsvmiaback() {
+    document.getElementById("animate-flight4").id = "animate-flight4back";
+    setTimeout(flightHsvmia, 35000);
+  }
+
+  //HSV-BNA
+  function flightHsvbna() {
+    document.getElementById("animate-flight5back").id = "animate-flight5";
+    setTimeout(flightHsvbnaback, 7000);
+  }
+  function flightHsvbnaback() {
+    document.getElementById("animate-flight5").id = "animate-flight5back";
+    setTimeout(flightHsvbna, 7000);
+  }
+
+  //HSV-DFW
+  function flightHsvdfw() {
+    document.getElementById("animate-flight6back").id = "animate-flight6";
+    setTimeout(flightHsvdfwback, 35000);
+  }
+  function flightHsvdfwback() {
+    document.getElementById("animate-flight6").id = "animate-flight6back";
+    setTimeout(flightHsvdfw, 35000);
+  }
+
+  //HSV-IAH
+  function flightHsviah() {
+    document.getElementById("animate-flight7back").id = "animate-flight7";
+    setTimeout(flightHsviahback, 32000);
+  }
+  function flightHsviahback() {
+    document.getElementById("animate-flight7").id = "animate-flight7back";
+    setTimeout(flightHsviah, 32000);
+  }
+
+//HSV-SFO
+  function flightHsvsfo() {
+    document.getElementById("animate-flight8back").id = "animate-flight8";
+    setTimeout(flightHsvsfoback, 55000);
+  }
+  function flightHsvsfoback() {
+    document.getElementById("animate-flight8").id = "animate-flight8back";
+    setTimeout(flightHsvsfo, 55000);
+  }
+
+//HSV-LAX
+  function flightHsvlax() {
+    document.getElementById("animate-flight9back").id = "animate-flight9";
+    setTimeout(flightHsvlaxback, 52000);
+  }
+  function flightHsvlaxback() {
+    document.getElementById("animate-flight9").id = "animate-flight9back";
+    setTimeout(flightHsvlax, 52000);
+  }
+
+//HSV-PDX
+  function flightHsvpdx() {
+    document.getElementById("animate-flight10back").id = "animate-flight10";
+    setTimeout(flightHsvpdxback, 53000);
+  }
+  function flightHsvpdxback() {
+    document.getElementById("animate-flight10").id = "animate-flight10back";
+    setTimeout(flightHsvpdx, 53000);
+  }
+
+</script>
+</html>

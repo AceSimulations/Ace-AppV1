@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<title>Ace Airlines App | BETA</title>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+  <style>
+    @keyframes animateSide{
+      0%{
+        margin-left: -260px;
+      }
+      100%{
+        margin-left: 0px;
+      }
+    }
+    @keyframes animateSideBack{
+      0%{
+        margin-left: 0;
+      }
+      100%{
+        margin-left: -260px;
+      }
+    }
+    #animate-nav{
+      animation: animateSide 1s forwards;
+    }
+    #animate-nav-def{
+      animation: none;
+    }
+    #unanimate-nav{
+      animation: animateSideBack 1s forwards;
+    }
+    ::-webkit-scrollbar{
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb{
+      border: 0px solid;
+      background-color: #d1d1d1;
+    }
+  </style>
+</head>
+
+<body style="margin: 0px; overflow: hidden; height: 100vh;">
+
+    <!--home-->
+    <div id="render_main" style="display: block; overflow: hidden;">
+      <div style="width: 100vw; height: 100vh; position: absolute; background-image: url(AceBackground.png); background-size: 100vw 100vh; top: 0px; left: 0px;">
+        <center>
+          <div style="width: 90%; height: 40px; position: relative; margin-top: 20px;">
+            <img src="hamburger.png" style="width: 40px; position: absolute; left: 0px;" onclick="animateNav('true')">
+            <img src="profile.png" onclick="profile()" style="width: 30px; position: absolute; right: 3px; top: 3px;">
+          </div>
+          <div style="width: 90%; height: 100px; position: relative; margin-top: 20px;">
+            <h1 style="font-family: Montserrat; font-weight: 900; color: white; margin: 0px; font-size: 6vw;">See Places You've Never Seen Before</h1>
+            <p style="font-family: Montserrat; font-weight: 300; color: white; margin: 0px; margin-top: 10px;font-size: 3vw;">WITH ACE AIRLINES</p>
+            <button style="font-family: Montserrat; width: 150px; height: 30px; border: 2px solid white; border-radius: 7px; margin-top: 15px; background-color: transparent; font-family: Montserrat; color: white;" onclick="window.location = 'https://flyaceairline.weebly.com/'">LEARN MORE</button><br>
+            <img src="threeDots.png" style="width: 50px; margin-top: 15px;">
+          </div>
+        
+          <div id="wrapper" style="width: 90%; height: auto; position: absolute; left: 5%; bottom: 5.5vh;">
+            <!--Coronvirus Button-->
+            <div style=" width: 100%; height: 50px; position: relative; margin-top: 0px; box-shadow: 0 0 7px rgba(0, 0, 0, 0.4); background-color: white; border-radius: 10px; margin-top: 135px;" onclick="window.location = '/news'">
+              <img src="virus.png" style="margin-top: 0px;display: inline-block; width: 26px;">
+
+              <p style="display:inline-block; font-family: Montserrat; font-weight: 300; font-size: 100%;">CORONAVIRUS UPDATE</p>
+            </div>
+          <div style="width: 100%; height: 15vh; position: relative; margin-top: 30px; background-color: transparent; border-radius: 10px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; text-align: left;">
+            <!--Book Now Button-->
+            <div style="background-color: white; width: 47%; height: 115%; position: absolute; top: 0px; left: 0px; display: inline-block; border-radius: 20px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); text-align: center; z-index: 0;" onclick="window.location='/book-a-flight'">
+              <img src="book.png" style="height: 40%; margin-top: 15px;">
+              <hr style="width: 20%; height: 3px; background-color: #e60f0f; border: 1px;">
+              <p style="font-size: auto; font-family: Montserrat; letter-spacing: 3px; margin-top: 0px;font-weight: 600;">BOOK</p>
+            </div>
+
+            <!--My flights Buttom-->
+            <div style="background-color: white; width: 47%; position: absolute; box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); top: 0px; right: 0px; height: 115%; display: inline-block; border-radius: 20px; text-align: center;" onclick="window.location = '/my-flights'">
+              <img src="myflights.png" style="height: 40%; margin-top: 15px;">
+              <hr style="width: 20%; height: 3px; background-color: #e60f0f; border: 1px;">
+              <p style="font-family: Montserrat; letter-spacing: 3px; margin-top: 0px; font-weight: 600;">FLIGHTS</p>
+            </div>
+          </div>
+
+          <div style="width: 100%; height: 15vh; position: relative; background-color: transparent; border-radius: 10px; margin-top: 10%; border-top-left-radius: 0px; border-top-right-radius: 0px;">
+
+            <!--Help Button-->
+            <div style="background-color: white; width: 47%; height: 115%; position: absolute; top: 0px; left: 0px; display: inline-block; border-radius: 20px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); text-align: center;" onclick="window.location = '/help'">
+              <img src="help.png" style="height: 40%; margin-top: 15px;">
+              <hr style="width: 20%; height: 3px; background-color: #e60f0f; border: 1px;">
+              <p style="font-family: Montserrat; letter-spacing: 3px; margin-top: 0px;font-weight: 600;">HELP</p>
+            </div>
+
+            <!--Ace News Button-->
+            <div style="background-color: white; width: 47%; position: absolute; top: 0px; right: 0px; height: 115%; display: inline-block; border-radius: 20px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);text-align: center;" onclick="window.location = '/news'">
+              <img src="news.png" style="height: 40%; margin-top: 15px;">
+              <hr style="width: 20%; height: 3px; background-color: #e60f0f; border: 1px;">
+              <p style="font-family: Montserrat; letter-spacing: 3px; margin-top: 0px;font-weight: 600;">NEWS</p>
+            </div>
+          </div>
+          </div>
+        </center>
+      </div>
+      
+      <!--navigation-->
+      <div id="unanimate-nav-def" style="width: 250px; background-color: #d6d6d6; height: 100vh; position: absolute; top: 0px; left: 0px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); margin-left: -260px">
+          <img src="backArrowNav.png" style="position: absolute; top: 30px; right: 30px; width: 10px;" onclick="unanimateNav()">
+          <img src="acelogo.png" style="width: 120px; margin: 20px;">
+          <h1 style="font-size: 170%; color: #e60f0f; margin: 0px; margin-left: 20px; font-family: Montserrat; margin-right: 10px;">Navigation</h1>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 25px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/home'">HOME</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location = '/news'">NEWS</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/book-a-flight'">BOOK NOW</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/my-flights'">MY FLIGHTS</button>
+          <button style="text-align: left; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; margin: 0px; margin-top: 10px; margin-left: 20px; border-radius: 4px; font-family: Montserrat;" onclick="window.location = 'https://flyaceairline.weebly.com/'">WEBSITE</button><!--
+          --><button style="position: absolute; margin-left: 18px; bottom: 40px; text-align: left; left: 0px; color: #e60f0f; width: 150px; height: 30px; background-color: transparent; border: none; border-radius: 4px; font-family: Montserrat;" onclick="window.location='/'">Log Out</button>
+          <i style="position: absolute; color: #e60f0f; bottom: 20px; left: 20px; font-family: Montserrat; font-size: 12px;">Copyright Ace Airlines™ 2020</i>
+      </div>
+    </div>
+    <!--Profile-->
+    <div id="profileDiv" style="display: none; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000;">
+      <div style="width: 300px; height: 270px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('profileDiv').style.display = 'none'">&times;</p>
+        <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
+        <p style="font-family: Montserrat; font-weight: 600; color: #e60f0f; position: absolute; top: 0px; left: 100px;">Your Profile</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">You can access you flights by clicking the button below.</p>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 150px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/my-flights'">MY FLIGHTS</button>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 200px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/'">LOG OUT</button>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+    <script>
+    var windowCheck = false;
+		function login(){
+        document.getElementById("login_render").style.display = "none";
+        document.getElementById("render_main").style.display = "block";
+        windowCheck = true;
+    }
+    var type = "false"
+    var time = 0;
+    const animateNav = () => {
+      time++
+      if (time == 1){
+        document.getElementById("unanimate-nav-def").id = "animate-nav";
+      } else {
+        document.getElementById("unanimate-nav").id = "animate-nav";
+      }
+    }
+
+    const unanimateNav = () => {
+      document.getElementById("animate-nav").id = "unanimate-nav";
+    }
+    setTimeout(() => {
+      document.getElementById("splash_render").style.display = "none";
+      document.getElementById("login_render").style.display = "block";
+    }, 500)
+
+    function profile() {
+      document.getElementById("profileDiv").style.display = "block"
+    }
+	</script>
+  </body>
+</html>
