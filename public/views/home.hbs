@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>Ace Airlines App | BETA</title>
+<title>Ace Airlines App | OFFICIAL</title>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +38,28 @@
       border: 0px solid;
       background-color: #d1d1d1;
     }
+
+    @keyframes grow{
+      0%{
+        width: 0;
+        height: 0;
+      }
+      100%{
+        width: calc(100% - 30px);
+        height: calc(100% - 90px);
+      }
+    }
+
+    @keyframes shrink{
+      0%{
+        width: calc(100% - 30px);
+        height: calc(100% - 90px);
+      }
+      100%{
+        width: 0;
+        height: 0;
+      }
+    }
   </style>
 </head>
 
@@ -59,11 +81,11 @@
           </div>
         
           <div id="wrapper" style="width: 90%; height: auto; position: absolute; left: 5%; bottom: 5.5vh;">
-            <!--Coronvirus Button-->
+            <!--Update Button-->
             <div style=" width: 100%; height: 50px; position: relative; margin-top: 0px; box-shadow: 0 0 7px rgba(0, 0, 0, 0.4); background-color: white; border-radius: 10px; margin-top: 135px;" onclick="window.location = '/news'">
-              <img src="virus.png" style="margin-top: 0px;display: inline-block; width: 26px;">
+              <img src="rocket.png" style="margin-top: 0px;display: inline-block; width: 26px;">
 
-              <p style="display:inline-block; font-family: Montserrat; font-weight: 300; font-size: 100%;">CORONAVIRUS UPDATE</p>
+              <p style="display:inline-block; font-family: Montserrat; font-weight: 300; font-size: 100%;">Ace App Version 1.9.9</p>
             </div>
           <div style="width: 100%; height: 15vh; position: relative; margin-top: 30px; background-color: transparent; border-radius: 10px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; text-align: left;">
             <!--Book Now Button-->
@@ -100,6 +122,16 @@
           </div>
         </center>
       </div>
+
+          <!--Update Availible-->
+    <div id="updateDiv" style="display: block; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000;">
+      <div style="width: 300px; height: 180px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('updateDiv').style.display = 'none'">&times;</p>
+        <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
+        <p style="font-family: Montserrat; font-weight: 600; color: #e60f0f; position: absolute; top: 0px; left: 100px;">Update Available</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">Update 1.9.9 has been released!</p>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 115px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="document.getElementById('updateDiv').style.display = 'none'">Install</button>
+      </div>
       
       <!--navigation-->
       <div id="unanimate-nav-def" style="width: 250px; background-color: #d6d6d6; height: 100vh; position: absolute; top: 0px; left: 0px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); margin-left: -260px">
@@ -126,10 +158,142 @@
         <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 200px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/'">LOG OUT</button>
       </div>
     </div>
+    <div style="position: fixed; bottom: 15px; right: 15px; border-radius: 50%; width: 50px; height: 50px; background-color: #b2bdffe7; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);" id="chat" onclick="openChat()">
+      <center>
+      <img src="chat.png" style="width: 30px; margin-right: 2px; margin-top: 15px;">
+      </center>
+    </div>
+    <div id="chatBox" style="animation: grow 0.5s forwards; position: fixed; bottom: 15px; right: 15px; height: calc(100% - 90px); width: calc(100% - 30px); border-radius: 15px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); background-color: white; display: none; flex-direction: column;">
+      <p onclick="chat.close()" style="font-family: Montserrat; font-weight: 600; margin: 0px; padding: 15px; background-color: #b2bdffe7; color: white; border-top-left-radius: 15px; border-top-right-radius: 15px;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">You are chatting with: <span id="chatter">Ben Lambertson</span></p>
+      <div id="chatBoxMain" style="width: 100%; flex-grow: 1; overflow: none; overflow-y: scroll; background-color: #f3f3f3;"></div>
+      <input type="text" style="padding: 15px; font-family: montserrat; border: none; border-top: 2px solid #e6e6e6; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;" onkeyup="chatDown(event)" id="chat-input" placeholder="Your message here...">
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
     <script>
+    var socket = io()
+
     var windowCheck = false;
+
+    var botType = false
+
+    var chat = {
+      send: function(username, message, type, chatter) {
+        if (botType) {
+          console.log('BotType [  Set  ]')
+        } else {
+          socket.emit('send-message', username, message, type, chatter)
+        }
+      },
+      close: function() {
+        document.getElementById('chatBox').style.display = "none"
+        document.getElementById('chat').style.display = "block"
+      },
+      typing: function(username, message, user) {
+        if (user === 'bot') {
+          botType = true
+          var wrapper = document.createElement('div')
+          wrapper.style.width = "100%"
+          wrapper.style.height = "auto"
+          wrapper.style.textAlign = "left"
+          wrapper.id = "typing" + document.getElementById('chatBoxMain').childElementCount
+          document.getElementById('chatBoxMain').appendChild(wrapper)
+
+          var post = document.createElement('p')
+          post.style.padding = "10px"
+          post.style.width = "auto"
+          post.style.margin = "15px"
+          post.style.color = "#1a1a1a"
+          post.style.textAlign = "left"
+          post.style.display = "inline-block"
+          post.style.fontFamily = "Montserrat"
+          post.style.backgroundColor = "#FFFFFF"
+          post.style.borderRadius = "10px"
+          post.textContent = "Ace Bot is typing..."
+          if (document.getElementById('chatBoxMain').childElementCount > 3) {
+
+          } else {
+            document.getElementById("typing" + (document.getElementById('chatBoxMain').childElementCount - 1).toString()).appendChild(post)
+            setTimeout(() => {
+              botType = false
+              var element = document.getElementById("typing" + (document.getElementById('chatBoxMain').childElementCount - 1).toString())
+              element.parentNode.removeChild(element)
+              chat.send(username, message, 'message', 'bot')
+            }, 2000) 
+          }
+        } else {
+          socket.emit('user-typing', user)
+        }
+      },
+      recieve: function(username, message, type, chatter) {
+        if (chatter === 'bot' || chatter === 'professional') {
+          var wrapper = document.createElement('div')
+          wrapper.style.width = "100%"
+          wrapper.style.height = "auto"
+          wrapper.style.textAlign = "left"
+          wrapper.id = "message" + document.getElementById('chatBoxMain').childElementCount
+          document.getElementById('chatBoxMain').appendChild(wrapper)
+
+          var post = document.createElement('p')
+          post.style.padding = "10px"
+          post.style.width = "auto"
+          post.style.margin = "15px"
+          post.style.color = "#1a1a1a"
+          post.style.textAlign = "left"
+          post.style.display = "inline-block"
+          post.style.fontFamily = "Montserrat"
+          post.style.backgroundColor = "#FFFFFF"
+          post.style.borderRadius = "10px"
+          post.textContent = message
+          document.getElementById("message" + (document.getElementById('chatBoxMain').childElementCount - 1).toString()).appendChild(post)
+          document.getElementById('chatBoxMain').scrollTop = document.getElementById('chatBoxMain').scrollHeight
+        } else {
+          document.getElementById('chat-input').value = ""
+          var wrapper = document.createElement('div')
+          wrapper.style.width = "100%"
+          wrapper.style.height = "auto"
+          wrapper.style.textAlign = "right"
+          wrapper.id = "message" + document.getElementById('chatBoxMain').childElementCount
+          document.getElementById('chatBoxMain').appendChild(wrapper)
+
+          var post = document.createElement('p')
+          post.style.padding = "10px"
+          post.style.width = "auto"
+          post.style.margin = "15px"
+          post.style.color = "#1a1a1a"
+          post.style.display = "inline-block"
+          post.style.textAlign = "right"
+          post.style.fontFamily = "Montserrat"
+          post.style.backgroundColor = "#e6e6e6"
+          post.style.borderRadius = "10px"
+          post.textContent = message
+          document.getElementById("message" + (document.getElementById('chatBoxMain').childElementCount - 1).toString()).appendChild(post)
+          chat.typing(localStorage.getItem('username'), "Thank you for your interest in the Ace App! An Ace Airline representative will be with you shortly.", 'bot')
+          document.getElementById('chatBoxMain').scrollTop = document.getElementById('chatBoxMain').scrollHeight
+        }
+      }
+    }
+
+    socket.on('recieve-message', (data) => {
+      chat.recieve(data.username, data.message, data.type, data.user)
+    })
+
+    function openChat() {
+      document.getElementById('chatBox').style.display = "flex"
+      document.getElementById('chat').style.display = "none"
+      document.getElementById('chatter').textContent = "Ace Bot"
+      chat.typing(localStorage.getItem('username'), "How can we help you today?", 'bot')
+    }
+
+    function chatDown(e){
+      
+      if (e.keyCode === 13) {
+        chat.send(localStorage.getItem('username'), document.getElementById('chat-input').value, 'message', 'user')
+      } else {
+        chat.typing(localStorage.getItem('username'))
+      }
+    }
+
 		function login(){
         document.getElementById("login_render").style.display = "none";
         document.getElementById("render_main").style.display = "block";

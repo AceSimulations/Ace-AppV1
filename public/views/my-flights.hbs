@@ -73,7 +73,7 @@
     </div>
     <div style="background-color: transparent; text-align: center; width: 100%; height: auto; position: absolute; margin-bottom: 20px;">
       <p onclick="clearFlights()" style="display: inline-block; font-size: 20px; color: #e60f0f; width: auto; font-family: Montserrat;">🗑 </p>
-      <p onclick="clearFlights()" style="display: inline-block; font-size: 15px; color: #e60f0f; width: auto; font-family: Montserrat;">Clear Flights</p>
+      <p onclick="document.getElementById('noFlights').style.display = 'block'" style="display: inline-block; font-size: 15px; color: #e60f0f; width: auto; font-family: Montserrat;">Clear Flights</p>
       </div>
     </center>
       <!--navigation-->
@@ -91,7 +91,7 @@
       </div>
     </div>
     <!--viewCheckDiv-->
-    <div id="viewCheckDiv" style="text-align: center; height: 0%; position: absolute; left: 0; bottom: 0; width: 100%; background-color: #e60f0f; display: none;">
+    <div id="viewCheckDiv" style="text-align: center; height: 0%; position: fixed; left: 0; bottom: 0; width: 100%; background-color: #e60f0f; display: none;">
     </div>
     <!--Profile-->
     <div id="profileDiv" style="display: none; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000;">
@@ -110,6 +110,16 @@
       <div style="width: 300px; height: 120px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
         <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('alertDiv').style.display = 'none'">&times;</p>
         <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 30px; left: 20px; font-size: 14px; width: 255px; text-align: center;">Please close the currently open flight. You can do this by clicking on the flight.</p>
+      </div>
+    </div>
+
+    <!--Alert for deleting flights-->
+    <div id="noFlights" style="display: none; width: 100vw; height: 100vh; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000;">
+      <div style="text-align: center; width: 300px; height: 200px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('noFlights').style.display = 'none'">&times;</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 30px; left: 20px; font-size: 14px; width: 255px; text-align: center;">You are about to delete all of your flights. Do you want to proceed?</p>
+        <button type="button" style="display: inline-block; width: 110px; height: 35px; margin-top: 110px; border-radius: 20px; background-color: #e60f0f; border: none; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="clearFlights()">YES</button>
+        <button type="button" style="display: inline-block;width: 110px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="document.getElementById('noFlights').style.display = 'none'">NO</button>
       </div>
     </div>
     <p id="name" style="display: none;">{{name}}</p>
@@ -222,7 +232,6 @@
       view.style.padding = "10px"
       view.style.borderRadius = "7px"
       view.addEventListener('click', () => window.location = '/flightStatus?name=' + name + '&date=' + date + '&type=' + type + "&username=" + localStorage.getItem('username'));
-      console.log("hello")
       document.getElementById(newId).appendChild(view)
       if (status == "false") {
         var checkin = document.createElement('p')
@@ -362,7 +371,7 @@
     }
     
 function viewCheck(inst) {
-  console.log(inst + " " + rInst)
+
   var show = document.getElementById("viewCheckDiv");
   var viewText = document.getElementById(inst.toString() + "view");
   var checkText = document.getElementById(inst.toString() + "checkin");

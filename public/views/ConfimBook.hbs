@@ -87,6 +87,7 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="script.js"></script>
 <script>
+  var socket = io()
   var type = "false"
   var time = 0;
   var name = document.getElementById('flightName').innerHTML
@@ -109,7 +110,7 @@
   }
 
   function forwardSave() {
-    window.location = "/my-flights?name=" + name + "&date=" + date + "&flightType=" + flightType + "&short=" + flightShort 
+    window.location = "/my-flights?name=" + name + "&date=" + date + "&flightType=" + flightType + "&short=" + flightShort
   }
   
 </script>

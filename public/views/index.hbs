@@ -4,7 +4,7 @@ NOTE:
 If repl needs to keep server on use this
 http://ping.mat1.repl.co/#
 -->
-<title>Ace Airlines App | BETA</title>
+<title>Ace Airlines App | OFFICIAL</title>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,6 +76,11 @@ http://ping.mat1.repl.co/#
     window.location = '/home'
   })
 
+  socket.on('login-fail-already-logged', () => {
+    document.getElementById('bad-username').style.display = "block"
+    document.getElementById('bad-username').textContent = "You are logged in at another location."
+  })
+
   socket.on('login-password-fail', () => {
     document.getElementById('bad-username').style.display = "block"
   })
@@ -106,7 +111,7 @@ http://ping.mat1.repl.co/#
   setTimeout(() => {
     document.getElementById("splash_render").style.display = "none";
     document.getElementById("login_render").style.display = "block";
-  }, 1000)
+  }, 1500)
 
 
 </script>

@@ -51,7 +51,7 @@
       <i style="font-family: Montserrat; color: #e60f0f; font-size: 45px; text">Ace Airlines</i>
       <p style="font-family: Montserrat; color: #e60f0f; font-size: 17px; margin-top: 50px; text">You have successfully checked in.</p>
       <p style="padding-bottom: 40px; font-family: Montserrat; color: #e60f0f; font-size: 20px; margin-top: 20px; text">Enjoy Your Flight!</p>
-      <button style="font-family: Montserrat; width: 175px; height: 50px; border: 2px solid red; border-radius: 7px; margin-top: 15px; background-color: transparent; font-family: Montserrat; color: #e60f0f;" onclick="goToFlightStatus()">PRINT BOARDING PASS</button>
+      <button style="display: none; font-family: Montserrat; width: 175px; height: 50px; border: 2px solid red; border-radius: 7px; margin-top: 15px; background-color: transparent; font-family: Montserrat; color: #e60f0f;" onclick="goToFlightStatus()">PRINT BOARDING PASS</button>
     </div>
     </center>
       <!--navigation-->
@@ -105,7 +105,7 @@
   }
 
   function goToFlightStatus() {
-    window.location = "/flightStatus?name=" + document.getElementById('flightName').innerHTML + "&date=" + document.getElementById('flightDate').innerHTML + "&type=" + document.getElementById('flightType').innerHTML + "&username=" + localStorage.getItem('username')
+    window.location = "/BoardingPass?name=" + document.getElementById('flightName').innerHTML + "&date=" + document.getElementById('flightDate').innerHTML + "&type=" + document.getElementById('flightType').innerHTML + "&username=" + localStorage.getItem('username')
   }
 </script>
 </html>
