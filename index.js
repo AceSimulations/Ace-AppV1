@@ -463,6 +463,10 @@ app.get('/help', (req, res) => {
   res.render('help.hbs')
 })
 
+app.get('/resource', (req, res) => {
+  res.render('resource.hbs')
+})
+
 app.get('/radar', (req, res) => {
   res.render('flightRadar.hbs')
 })

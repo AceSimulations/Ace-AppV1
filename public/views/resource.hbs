@@ -37,22 +37,33 @@
       background-color: #d1d1d1;
     }
   </style>
-  <body style="margin: 0px;">
+  <body style="background-image: url(loginbackground.jpg);background-size: cover; margin: 0px;">
     <center>
     <div style="width: 100%; height: 55px; background-color: #e60f0f;">
       <div style="width: 90%; height: 55px; position: relative;">
         <img src="hamburger.png" style="width: 40px; position: absolute; left: 0px; top: 10px;" onclick="animateNav('true')">
         <img src="profile.png" onclick="profile()" style="width: 30px; position: absolute; right: 3px; top: 13px;">
-        <p style="font-family: Montserrat; color: white; font-weight: 700; letter-spacing: 3px; padding-top: 20px;">BOOK A FLIGHT</p>
+        <p style="font-family: Montserrat; color: white; font-weight: 700; letter-spacing: 3px; padding-top: 20px;">HELP</p>
       </div>
     </div>
-    <div style="width: 90%; height: 400px; position: absolute; top: 50%; margin-top: -200px; left: 5%;">
-      <p style="font-family: Montserrat; color: #e60f0f; font-size: 20px; margin-top: 30px; margin-bottom: 5px;text">Confirm Information for your flight?</p>
-      <br></br>
-      <b id="confirmCode" style="font-family: Montserrat; color: #e60f0f; font-size: 50px; margin-top: 20px; text">{{flightShort}}</b><br></br>
-      <button type="button" style="display: inline-block; width: 110px; height: 35px; margin-top: 50px; border-radius: 20px; background-color: #e60f0f; border: none; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="forwardSave()">YES</button>
-      <button type="button" style="display: inline-block;width: 110px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/book-a-flight'">NO</button>
-    </div>
+    <div style="background-color: transparent; text-align: left; width: 100%; height: auto;">
+    <b style="margin-left: 20px; position: relative; top: 30px; font-size: 35px; font-family: Montserrat; color: #e60f0f;">Ace Info</b>
+      <p style="margin-left: 20px; position: relative; top: 10px;font-size: 18px; font-family: Montserrat; color: #739fff;">Below are links to everything Ace</p>
+      <a style="display: block; margin-left: 20px; position: relative; top: 10px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com">Website</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 20px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com/ace-it">Ace IT</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 30px; font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com/ace-studios">Ace Studios</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 40px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://aceit--flightdude737.repl.co">Ace App Store</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 50px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com/simulation">Simulation</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 60px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com/ace-airlines-newsletter">Newsletter</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 70px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com/a-program-info">Ace A+ Program</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 80px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://flyaceairline.weebly.com/ace-jetstream">Ace Jetsteam</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 90px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://ace-app.aceairlines.repl.co/news">Ace News</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 100px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://ace-app.aceairlines.repl.co/book-a-flight">Ace Book</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 110px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://ace-app.aceairlines.repl.co/my-flights">My Flights</a>
+      <a style="display: block; margin-left: 20px; position: relative; top: 120px;font-size: 18px; font-family: Montserrat; color: #739fff;" href="https://ace-app.aceairlines.repl.co/help">Help</a>
+    <div>
+      
+     </div>
     </center>
       <!--navigation-->
       <div id="unanimate-nav-def" style="width: 250px; background-color: #d6d6d6; height: 100vh; position: absolute; top: 0px; left: 0px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); margin-left: -260px">
@@ -80,21 +91,12 @@
         <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 200px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="window.location='/'">LOG OUT</button>
       </div>
     </div>
-    <p style="display: none;" id="flightName">{{flightName}}</p>
-    <p style="display: none;" id="flightDate">{{flightData}}</p>
-    <p style="display: none;" id="flightType">{{flightType}}</p>
-    <p style="display: none;" id="flightShort">{{flightShort}}</p>
   </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="script.js"></script>
 <script>
-  var socket = io()
   var type = "false"
   var time = 0;
-  var name = document.getElementById('flightName').innerHTML
-  var date = document.getElementById('flightDate').innerHTML
-  var flightType = document.getElementById('flightType').innerHTML
-  var flightShort = document.getElementById('flightShort').innerHTML
   const animateNav = () => {
     time++
     if (time == 1){
@@ -109,10 +111,5 @@
   function profile() {
     document.getElementById("profileDiv").style.display = "block"
   }
-
-  function forwardSave() {
-    window.location = "/my-flights?name=" + name + "&date=" + date + "&flightType=" + flightType + "&short=" + flightShort
-  }
-  
 </script>
 </html>

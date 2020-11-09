@@ -1,9 +1,15 @@
 # Version Control
 
+##### **Version 1.9.9**
+> **Latest Stable Version as of 11-9-20**
+> Added Update Function
+> Added Update Screen
+> Added Help Section to Navigation
+
 ##### **Version 1.2.1**
 > **Latest Stable Version as of 6-1-20**
-> Allows better connections with the AceEdit database.
-> Added Ace News article.
+> Allows better connections with the AceEdit database
+> Added Ace News article
 
 ##### **Version 1.1.9**
 > **Latest Stable Version as of 5-28-20**

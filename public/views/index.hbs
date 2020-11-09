@@ -23,7 +23,7 @@ http://ping.mat1.repl.co/#
 <body style="margin: 0px; overflow: hidden; height: 100vh;">
 
   <!--splash screen-->
-  <div onload="unanimateNav()" id="splash_render" style="text-align: center; display: block; width: 100vw; height: 100vh; background-color: white position: relative;">
+  <div id="splash_render" style="text-align: center; display: none; width: 100vw; height: 100vh; background-color: white position: relative;">
     <div style="width: 120px; height: 130px; position: absolute; top: 50%; margin-top: -70px; left: 50%; margin-left: -60px;">
       <img src="pageLoad.gif" style="height: 120px;">
     </div>
@@ -55,6 +55,15 @@ http://ping.mat1.repl.co/#
         </div>
       </div>
     </div>
+    <!--Update Availible-->
+    <div id="updateDiv" style="display: block; width: 100vw; height: 100vh; background-image: url(loginbackground.jpg); background-size: cover; position: fixed; top: 0px; left: 0px; z-index: 5000;">
+      <div style="width: 300px; height: 180px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('updateDiv').style.display = 'none'; load()">&times;</p>
+        <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
+        <p style="font-family: Montserrat; font-weight: 600; color: #e60f0f; position: absolute; top: 0px; left: 100px;">Update Available</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">Update 1.9.9 has been released!</p>
+        <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 115px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="document.getElementById('updateDiv').style.display = 'none'; load()">Install</button>
+      </div>
   </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="script.js"></script>
@@ -94,25 +103,17 @@ http://ping.mat1.repl.co/#
       document.getElementById("render_main").style.display = "block";
       windowCheck = true;
   }
-  var type = "false"
-  var time = 0;
-  const animateNav = () => {
-    time++
-    if (time == 1){
-      document.getElementById("unanimate-nav-def").id = "animate-nav";
-    } else {
-      document.getElementById("unanimate-nav").id = "animate-nav";
-    }
+
+  function load(){
+    document.getElementById("splash_render").style.display = "block";
+    update()
   }
 
-  const unanimateNav = () => {
-    document.getElementById("animate-nav").id = "unanimate-nav";
-  }
-  setTimeout(() => {
+function update() {
+  setTimeout(function(){
     document.getElementById("splash_render").style.display = "none";
     document.getElementById("login_render").style.display = "block";
   }, 1500)
-
-
+}
 </script>
 </html>
