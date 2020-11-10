@@ -2,7 +2,7 @@
 
 ##### **Version 1.9.9**
 > **Latest Stable Version as of 11-9-20**
-> Added Update Function
+> Added Update Function That Saves Updates
 > Added Update Screen
 > Added Help Section to Navigation
 

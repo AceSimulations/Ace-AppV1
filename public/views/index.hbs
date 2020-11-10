@@ -20,7 +20,7 @@ http://ping.mat1.repl.co/#
     </style>
 </head>
 
-<body style="margin: 0px; overflow: hidden; height: 100vh;">
+<body onload="updateLoad()" style="margin: 0px; overflow: hidden; height: 100vh;">
 
   <!--splash screen-->
   <div id="splash_render" style="text-align: center; display: none; width: 100vw; height: 100vh; background-color: white position: relative;">
@@ -56,7 +56,7 @@ http://ping.mat1.repl.co/#
       </div>
     </div>
     <!--Update Availible-->
-    <div id="updateDiv" style="display: block; width: 100vw; height: 100vh; background-image: url(loginbackground.jpg); background-size: cover; position: fixed; top: 0px; left: 0px; z-index: 5000;">
+    <div id="updateDiv" style="display: none; width: 100vw; height: 100vh; background-image: url(loginbackground.jpg); background-size: cover; position: fixed; top: 0px; left: 0px; z-index: 5000;">
       <div style="width: 300px; height: 180px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
         <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('updateDiv').style.display = 'none'; load()">&times;</p>
         <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
@@ -102,6 +102,30 @@ http://ping.mat1.repl.co/#
       document.getElementById("login_render").style.display = "none";
       document.getElementById("render_main").style.display = "block";
       windowCheck = true;
+  }
+
+  function getCookie(cname) {
+     var name = cname + "=";
+     var ca = document.cookie.split(';');
+     for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if(c.indexOf(name) == 0)
+           return c.substring(name.length,c.length);
+     }
+     return "";
+}
+
+  function updateLoad(){
+    if (getCookie('update') == "Complete") {
+      document.getElementById("updateDiv").style.display = "none";
+      console.log("Already Updated");
+      load()
+    } else {
+    document.getElementById("updateDiv").style.display = "block";
+    console.log("Update Ready");
+    document.cookie = "update=Complete; expires=Tue, 20 Nov 2020 12:00:00 UTC";
+    }
   }
 
   function load(){
