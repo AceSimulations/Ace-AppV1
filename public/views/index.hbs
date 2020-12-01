@@ -122,27 +122,27 @@ http://ping.mat1.repl.co/#
 var date = new Date();
 var month = date.getMonth();
 
-//December is 11
+//Janember is 11
 function checkdate(){
-  if (month == 11) {
+  if (month == 10) {
     console.log("Date is a match-continuing auth");
     if (getCookie('FirstTime') == "True") {
-      document.cookie = "FirstTime=False; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+      document.cookie = "FirstTime=False; expires=Fri, 1 Jan 2021 12:00:00 UTC";
       console.log("Cookie is True");
-      document.cookie = "update=InComplete; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+      document.cookie = "update=InComplete; expires=Fri, 1 Jan 2021 12:00:00 UTC";
       console.log(month);
       console.log("Assigned Date is met and Data is set");
       updateLoad();
     } 
     else {
       if (getCookie('FirstTime') == "False") {
-        document.cookie = "FirstTime=False; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+        document.cookie = "FirstTime=False; expires=Fri, 1 Jan 2021 12:00:00 UTC";
         document.getElementById("updateDiv").style.display = "none";
         console.log("Cookie is False");
         updateLoad()
       }
       else {
-        document.cookie = "FirstTime=True; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+        document.cookie = "FirstTime=True; expires=Fri, 1 Jan 2021 12:00:00 UTC";
         document.getElementById("updateDiv").style.display = "none";
         console.log("Cookie not found Data added");
         checkdate()
@@ -159,10 +159,9 @@ function checkdate(){
 //onload function
   function updateLoad(){
     if (getCookie('update') == "Complete") {
-      //check date
       document.getElementById("updateDiv").style.display = "none";
       console.log("Already Updated");
-      load()
+      preload()
     } 
     else {
     document.getElementById("updateDiv").style.display = "block";
@@ -172,12 +171,17 @@ function checkdate(){
   //install
   function load(){
     document.getElementById("splash_render").style.display = "block";
-    document.cookie = "update=Complete; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+    document.cookie = "update=Complete; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    update()
+  }
+  //preinstall
+  function preload(){
+    document.getElementById("splash_render").style.display = "block";
     update()
   }
   function nonupdate(){
-    document.cookie = "update=InComplete; expires=Tue, 1 Dec 2020 12:00:00 UTC";
-    load()
+    document.cookie = "update=InComplete; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+    preload()
   }
 function update() {
   setTimeout(function(){
