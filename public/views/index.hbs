@@ -20,7 +20,7 @@ http://ping.mat1.repl.co/#
     </style>
 </head>
 
-<body onload="updateLoad()" style="margin: 0px; overflow: hidden; height: 100vh;">
+<body onload="checkdate()" style="margin: 0px; overflow: hidden; height: 100vh;">
 
   <!--splash screen-->
   <div id="splash_render" style="text-align: center; display: none; width: 100vw; height: 100vh; background-color: white position: relative;">
@@ -58,10 +58,10 @@ http://ping.mat1.repl.co/#
     <!--Update Availible-->
     <div id="updateDiv" style="display: none; width: 100vw; height: 100vh; background-image: url(loginbackground.jpg); background-size: cover; position: fixed; top: 0px; left: 0px; z-index: 5000;">
       <div style="width: 300px; height: 180px; background-color: white; position: absolute; top: 20px; right: 50%; margin-right: -150px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); border-radius: 5px; top: 50%; margin-top: -115px;">
-        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('updateDiv').style.display = 'none'; load()">&times;</p>
+        <p style="position: absolute; font-family: Montserrat; top: 3px; right: 15px; color: black; margin: 0px; font-size: 35px;" onclick="document.getElementById('updateDiv').style.display = 'none'; nonupdate()">&times;</p>
         <img src="acelogo.png" style="width: 60px; padding: 10px; margin-left: 10px;">
         <p style="font-family: Montserrat; font-weight: 600; color: #e60f0f; position: absolute; top: 0px; left: 100px;">Update Available</p>
-        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">Update 1.9.9 has been released!</p>
+        <p style="font-family: Montserrat; font-weight: 600; color: black; position: absolute; top: 55px; left: 20px; font-size: 14px; width: 255px; text-align: center;">Update 1.10.3 has been released!</p>
         <button type="button" style="width: 255px; height: 35px; border-radius: 20px; background-color: #e60f0f; border: none; position: absolute; left: 20px; top: 115px; box-shadow: 0 0 20px rgba(230, 15, 15, 0.4); color: white; font-family: Montserrat;" onclick="document.getElementById('updateDiv').style.display = 'none'; load()">Install</button>
       </div>
   </body>
@@ -104,6 +104,8 @@ http://ping.mat1.repl.co/#
       windowCheck = true;
   }
 
+
+//Do Not Delete | This is for saving the cookie
   function getCookie(cname) {
      var name = cname + "=";
      var ca = document.cookie.split(';');
@@ -116,23 +118,67 @@ http://ping.mat1.repl.co/#
      return "";
 }
 
+//set cookie for update
+var date = new Date();
+var month = date.getMonth();
+
+//December is 11
+function checkdate(){
+  if (month == 11) {
+    console.log("Date is a match-continuing auth");
+    if (getCookie('FirstTime') == "True") {
+      document.cookie = "FirstTime=False; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+      console.log("Cookie is True");
+      document.cookie = "update=InComplete; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+      console.log(month);
+      console.log("Assigned Date is met and Data is set");
+      updateLoad();
+    } 
+    else {
+      if (getCookie('FirstTime') == "False") {
+        document.cookie = "FirstTime=False; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+        document.getElementById("updateDiv").style.display = "none";
+        console.log("Cookie is False");
+        updateLoad()
+      }
+      else {
+        document.cookie = "FirstTime=True; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+        document.getElementById("updateDiv").style.display = "none";
+        console.log("Cookie not found Data added");
+        checkdate()
+      }
+    }
+  }
+  else {
+    console.log(month);
+    console.log("Assigned Date is not met");
+    updateLoad();
+  }
+}
+
+//onload function
   function updateLoad(){
     if (getCookie('update') == "Complete") {
+      //check date
       document.getElementById("updateDiv").style.display = "none";
       console.log("Already Updated");
       load()
-    } else {
+    } 
+    else {
     document.getElementById("updateDiv").style.display = "block";
     console.log("Update Ready");
-    document.cookie = "update=Complete; expires=Tue, 20 Nov 2020 12:00:00 UTC";
     }
   }
-
+  //install
   function load(){
     document.getElementById("splash_render").style.display = "block";
+    document.cookie = "update=Complete; expires=Tue, 1 Dec 2020 12:00:00 UTC";
     update()
   }
-
+  function nonupdate(){
+    document.cookie = "update=InComplete; expires=Tue, 1 Dec 2020 12:00:00 UTC";
+    load()
+  }
 function update() {
   setTimeout(function(){
     document.getElementById("splash_render").style.display = "none";

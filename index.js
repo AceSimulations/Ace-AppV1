@@ -8,6 +8,10 @@ const fs = require('fs');
 const nodemailer = require('nodemailer')
 const path = require('path');
 const chalk = require('chalk')
+const Database = require('@replit/database')
+const db = new Database()
+const Cryptr = require('cryptr')
+const cryptr = new Cryptr('cIeJJQpIpHo95UL9SZyq')
 
 var transport = nodemailer.createTransport({
   service: 'gmail',
@@ -30,7 +34,6 @@ app.set('view engine', 'hbs')
 app.set('views', 'public/views')
 
 io.on('connection', (socket) => {
-  console.log(socket.id + " [ New Connection ]")
 
   socket.on('send-message', (username, message, type, user) => {
     try {
@@ -175,6 +178,10 @@ app.get('/confirm-check-in', (req, res) => {
   res.render('ConfirmCheckIn.hbs')
 })
 
+app.get('/flight-radar', (req, res) => {
+  res.render('AceRadar.hbs')
+})
+
 app.get('/check-in', (req, res) => {
   var indexData = -1
   var checkInName = req.query.name
@@ -253,6 +260,46 @@ app.get('/flightStatus', (req, res) => {
 })
 
 // Do not mess with the '/connect' endpoint. This data connects directly to the internal filesystem. Misusing the enpoint could resolve in destructive data for other applications. Thank you!!! :)
+
+// As of 11/11/2020 12:01 PM
+
+app.get('/authorize', async (req, res) => {
+  var key = await db.get('apikey').then(value => {
+    return value.key
+  })
+  if (key === req.query.key) {
+    var userdb = await JSON.parse(fs.readFileSync('public/userinfo/userInfo.json'))
+    var user = userdb.find((user) => {
+      return user.username === cryptr.decrypt(req.query.username)
+    })
+    if (user) {
+      console.log('user found')
+      request({url: 'https://api.hashify.net/hash/sha3-512/hex?value=' + cryptr.decrypt(req.query.password), json: true}, (err, response) => {
+        if (response.body.Digest === user.password) {
+          res.send({
+            status: 200
+          })
+        } else {
+          res.send({
+            status: 401
+          })
+        }
+      })
+    } else {
+      res.send({
+        error: 401,
+        status: 'No user found.'
+      })
+    }
+  } else {
+    res.send({
+      error: 401,
+      msg: 'No access.'
+    })
+  }
+})
+
+// As of when I didn't know how to code :) (below)
 
 app.get('/connect', (req, res) => {
   if (req.query.query === 'get-destinations') {

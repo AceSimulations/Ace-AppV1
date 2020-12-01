@@ -1,5 +1,10 @@
 # Version Control
 
+##### **Version 1.10.3**
+> **Latest Stable Version as of 12-1-20**
+> Update System is fully working
+> Fixed a few Bugs
+
 ##### **Version 1.9.9**
 > **Latest Stable Version as of 11-9-20**
 > Added Update Function That Saves Updates
