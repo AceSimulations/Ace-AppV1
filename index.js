@@ -299,7 +299,6 @@ app.get('/authorize', async (req, res) => {
   }
 })
 
-// As of when I didn't know how to code :) (below)
 
 app.get('/connect', (req, res) => {
   if (req.query.query === 'get-destinations') {
@@ -571,8 +570,11 @@ app.get('/create-account', (req, res) => {
           fs.writeFileSync('public/userinfo/users/' + req.query.username + '/' + req.query.username + '.json', JSON.stringify([]))
           var userDetails = req.query.username
           transport.sendMail({ to: req.query.email, from: 'Ace Airlines <aceairofficial@gmail.com>', subject: 'Thanks for signing up for the Ace App!', html: "<html><head><link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'></head><body style='padding: 40px; background-color: #f1f1f1;'><center><div style='width: 400px; height: 650px; background-color: white; border: 1px solid; text-align: left;'><center><img src='http://ace-app.aceairlines.repl.co/acelogo.png' style='width: 100px; margin-top: 20px;'></center><p style='margin: 20px; font-family: roboto; margin-top: 30px; font-size: 20px;'>Hello " + req.query.username + ",</p><p style='margin: 20px; font-family: roboto; margin-top: 30px; font-size: 20px;'>Thank you for creating an account with Ace Airlines! If at any time you need help from a service representative, please contact us at aceairofficial@gmail.com</p><p style='margin: 20px; font-family: roboto; margin-top: 30px; font-size: 20px;'>If you experience any bugs, then please report them to our forum. https://fly-great.weebly.com/forum</p><p style='margin: 20px; font-family: roboto; margin-top: 30px; font-size: 20px;'>Thank you,</p><p style='margin-left: 20px; font-family: roboto; margin-top: 0px; font-size: 20px;'>Ace Airlines</p></div></center></body></html>" }, (err, response) => {
-            if (err) throw err
-            console.log('Email sent.')
+            if (err) {
+              console.log('There was an error with email processing. Continuing...')
+            } else {
+              console.log('Email sent.')
+            }
             res.redirect('/')
           })
         })
