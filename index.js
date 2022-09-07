@@ -584,7 +584,7 @@ app.get('/create-account', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.render('index.hbs')
+  res.render('index')
 })
 
 app.get('/sign-up/auth', (req, res) => {
